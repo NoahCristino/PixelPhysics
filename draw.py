@@ -10,7 +10,7 @@ def my_filter(i):
         return np.array([255, 0, 0])
     return np.array([0, 255, 0])
 
-def getMap():
+def get_map():
     shape = (400,400)
     scale = .3
     octaves = 6
@@ -42,5 +42,10 @@ def getMap():
         for b, element in enumerate(line):
             np.put(img[a][b], [0, 1, 2], my_filter(img[a][b]))
 
-    l2 = cv2.resize(img, (1000, 1000))
-    return l2
+    #l2 = cv2.resize(img, (1000, 1000))
+    return img #return l2
+
+def draw_pixel(arr, x, y, color):
+    a = arr
+    a[x][y] = color
+    return a
